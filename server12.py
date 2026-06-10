@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 CONFIG_FILE = "bot_config.json"
 DEFAULT_CONFIG = {
     "admin_usernames": ["ad0ri"],
-    "vip_usernames": ["ad0ri"],
+    "vip_usernames": [],
     "banned_users": [],
     "teleport_locations": {
         "vip": {"x": 14.5, "y": 16.75, "z": 5.5},
