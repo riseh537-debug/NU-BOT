@@ -2450,3 +2450,7 @@ async def main():
             await bot_def.bot.cleanup_tasks()
             attempt += 1
             await sleep(5)
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
