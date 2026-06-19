@@ -79,8 +79,10 @@ class AdvancedBot(BaseBot):
             "!freeze": self.cmd_freeze,
             "!unfreeze": self.cmd_unfreeze,
             "!party": self.cmd_party,
-            "!partys": self.cmd_partys
-        }
+            "!partys": self.cmd_partys,
+            "!changeroom": self.cmd_changeroom
+      }
+
         self.emotes = {
             "1": "idle_zombie",
             "2": "idle_layingdown2",
@@ -1987,6 +1989,38 @@ class AdvancedBot(BaseBot):
             await self.highrise.chat(self.get_message("teleport_error", error=str(e)))
             logger.error(f"خطا در cmd_down: {e}")
 
+    async def cmd_changeroom(self, user: User, args: list):
+        """دستور فوق امنیتی و اختصاصی فقط برای ad0ri جهت تغییر روم و ری‌استارت ربات"""
+        import os
+        import sys
+        import asyncio
+
+        # 🔒 قفل سخت‌گیرانه: فقط آیدی دقیق ad0ri اجازه عبور دارد
+        if user.username.lower() != "ad0ri":
+            await self.highrise.chat("❌ خطا: این دستور کاملاً اختصاصی است و شما دسترسی اجرای آن را ندارید.")
+            return
+
+        # بررسی وارد شدن آیدی روم جدید
+        if not args or len(args) < 1:
+            await self.highrise.chat("⚠️ لطفاً آیدی روم جدید را جلوی دستور بنویسید.\nمثال: !changeroom ID_ROOM")
+            return
+
+        new_room_id = args[0].strip()
+        
+        # فرستادن پیام تایید در چت روم قبل از رفتن
+        await self.highrise.chat(f"🚀 دستور انتقال به روم جدید توسط ad0ri تایید شد. در حال انتقال ربات...")
+        logger.info(f"مالک ربات (ad0ri) دستور انتقال به روم {new_room_id} را صادر کرد.")
+        
+        # قرار دادن آیدی جدید در حافظه زنده محیطی
+        os.environ["ROOM_ID"] = new_room_id
+        
+        # قطع ارتباط ایمن و بستن کارهای پس‌زمینه برای جلوگیری از باگ روح
+        await asyncio.sleep(2)
+        
+        # ری‌استارت زنده و آنی پایتون بدون کرش کردن رندر
+        os.execv(sys.executable, ['python'] + sys.argv)
+
+    
     async def cmd_ban(self, user: User, message: str):
         if user.username.lower() not in self.config["admin_usernames"]:
             await self.highrise.chat(self.get_message("no_permission"))
