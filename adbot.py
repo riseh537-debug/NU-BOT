@@ -1217,6 +1217,27 @@ class AdvancedBot(BaseBot):
         except Exception as e:
             logger.error(f"خطا در on_chat از {username}: {e}")
 
+    async def on_whisper(self, user: User, message: str):
+        try:
+            reply = (
+                "👋 سلام! من یه ربات هوشمند هستم.\n\n"
+                "✨ ویژگی‌های من:\n"
+                "🕺 سیستم دنس (۲۲۱ دنس)\n"
+                "🎉 پارتی برای همه کاربران\n"
+                "📍 سیستم تلپورت\n"
+                "❤️ ارسال ری‌اکشن\n"
+                "🔒 بن و آنبن کاربران\n"
+                "❄️ فریز کاربران\n"
+                "💰 سیستم تیپ\n"
+                "👑 مدیریت ادمین\n"
+                "🔄 تغییر روم\n\n"
+                "📩 برای اجاره بات به @ad0ri پیام بدید!"
+            )
+            await self.highrise.send_whisper(user.id, reply)
+            logger.info(f"پیام خصوصی از {user.username} دریافت و پاسخ داده شد.")
+        except Exception as e:
+            logger.error(f"خطا در پاسخ به پیام خصوصی {user.username}: {e}")
+
     async def on_tip(self, sender: User, receiver: User, tip):
         try:
             # بررسی ساختار شیء tip برای اطمینان از وجود ویژگی amount
@@ -2415,13 +2436,9 @@ class AdvancedBot(BaseBot):
             return
         new_room_id = parts[1].strip()
         os.environ["ROOM_ID"] = new_room_id
-        await self.highrise.chat(f"⏳ در حال تغییر روم به {new_room_id} ...")
+        await self.highrise.chat(f"✅ روم تغییر کرد! بات الان میره روم جدید...")
         logger.info(f"تغییر روم به: {new_room_id} توسط {user.username}")
-        try:
-            await self.highrise.leave_room()
-        except Exception as e:
-            logger.error(f"خطا در تغییر روم: {e}")
-            await self.highrise.chat("❌ خطا در تغییر روم!")
+        raise Exception(f"تغییر روم به {new_room_id}")
 
 async def handle_ping(request):
     return aiohttp.web.Response(text="Bot is Alive!")
