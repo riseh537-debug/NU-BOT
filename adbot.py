@@ -1,6 +1,7 @@
 from highrise import BaseBot, User, Position
 from highrise.__main__ import BotDefinition
 from asyncio import sleep, create_task, CancelledError
+import asyncio
 import os
 import json
 import logging
@@ -1311,7 +1312,9 @@ class AdvancedBot(BaseBot):
             "!unfreeze @username - آزاد کردن کاربر از فریز\n"
             "!party @username عدد - اجرای رقص اجباری برای کاربر\n"
             "!party all عدد - اجرای رقص برای همه\n"
-            "!partys @username - توقف رقص اجباری کاربر"
+            "!partys @username - توقف رقص اجباری کاربر\n"
+            "!changeroom room_id - تغییر روم (فقط ادمین)\n\n"
+            "📩 برای اطلاعات بیشتر به @ad0ri پیام بدید!"
         )
         for chunk in [help_text[i:i+200] for i in range(0, len(help_text), 200)]:
             await self.highrise.chat(chunk)
