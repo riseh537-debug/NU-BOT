@@ -338,6 +338,20 @@ class AdvancedBot(BaseBot):
             "248": "emote-knocking-screen",
             "249": "emote-alice-shrink",
             "250": "emote-threadexchange-star",
+            "251": "emote-fairytwirl",
+            "252": "emote-sweetsmooch",
+            "253": "idle-floating",
+            "254": "emoji-halo",
+            "255": "emote-launch",
+            "256": "emote-shy2",
+            "257": "emoji-dizzy",
+            "258": "idle-howl",
+            "259": "dance-twerk",
+            "260": "dance-freshprince",
+            "261": "dance-fruity",
+            "262": "dance-wild",
+            "263": "dance-spiritual",
+            "264": "dance-anime",
             "۱": "idle_zombie",
             "۲": "idle_layingdown2",
             "۳": "idle_layingdown",
@@ -588,6 +602,20 @@ class AdvancedBot(BaseBot):
             "۲۴۸": "emote-knocking-screen",
             "۲۴۹": "emote-alice-shrink",
             "۲۵۰": "emote-threadexchange-star",
+            "۲۵۱": "emote-fairytwirl",
+            "۲۵۲": "emote-sweetsmooch",
+            "۲۵۳": "idle-floating",
+            "۲۵۴": "emoji-halo",
+            "۲۵۵": "emote-launch",
+            "۲۵۶": "emote-shy2",
+            "۲۵۷": "emoji-dizzy",
+            "۲۵۸": "idle-howl",
+            "۲۵۹": "dance-twerk",
+            "۲۶۰": "dance-freshprince",
+            "۲۶۱": "dance-fruity",
+            "۲۶۲": "dance-wild",
+            "۲۶۳": "dance-spiritual",
+            "۲۶۴": "dance-anime",
             "zombie": "idle_zombie",
             "relaxed": "idle_layingdown2",
             "attentive": "idle_layingdown",
@@ -811,7 +839,21 @@ class AdvancedBot(BaseBot):
             "floss": "dance-floss",
             "rest": "sit-idle-cute",
             "aliceshrink": "emote-alice-shrink",
-            "threadexchangestar": "emote-threadexchange-star"
+            "threadexchangestar": "emote-threadexchange-star",
+            "fairytwirl": "emote-fairytwirl",
+            "sweetsmooch": "emote-sweetsmooch",
+            "floating": "idle-floating",
+            "halo": "emoji-halo",
+            "launch": "emote-launch",
+            "shy2": "emote-shy2",
+            "dizzy": "emoji-dizzy",
+            "howl": "idle-howl",
+            "twerk": "dance-twerk",
+            "freshprince": "dance-freshprince",
+            "fruity": "dance-fruity",
+            "wild": "dance-wild",
+            "spiritual": "dance-spiritual",
+            "anime": "dance-anime"
         }
 
         self.emote_durations = {
@@ -2335,9 +2377,9 @@ class AdvancedBot(BaseBot):
             logger.error(f"خطا در cmd_removeadmin برای {target_username}: {str(e)}")
 
     async def cmd_addhost(self, user: User, parts: list):
-        """⚠️ اختصاصی: فقط خود مالک اصلی بات (ad0ri) می‌تواند رتبه Host بدهد؛
+        """⚠️ اختصاصی: فقط خود مالک اصلی بات (nima_curly) می‌تواند رتبه Host بدهد؛
         حتی سایر Host‌ها هم اجازه اجرای این دستور را ندارند."""
-        if user.username.lower() != "ad0ri":
+        if user.username.lower() != "nima_curly":
             await self.highrise.chat("❌ دسترسی غیرمجاز!")
             logger.info(f"کاربر {user.username} سعی کرد !addhost را اجرا کند اما دسترسی ندارد.")
             return
@@ -2365,8 +2407,8 @@ class AdvancedBot(BaseBot):
             logger.error(f"خطا در cmd_addhost برای {target_username}: {str(e)}")
 
     async def cmd_removehost(self, user: User, parts: list):
-        """⚠️ اختصاصی: فقط خود مالک اصلی بات (ad0ri) می‌تواند رتبه Host را بگیرد."""
-        if user.username.lower() != "ad0ri":
+        """⚠️ اختصاصی: فقط خود مالک اصلی بات (nima_curly) می‌تواند رتبه Host را بگیرد."""
+        if user.username.lower() != "nima_curly":
             await self.highrise.chat("❌ دسترسی غیرمجاز!")
             logger.info(f"کاربر {user.username} سعی کرد !removehost را اجرا کند اما دسترسی ندارد.")
             return
