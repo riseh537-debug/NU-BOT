@@ -33,6 +33,7 @@ DEFAULT_CONFIG = {
         "dj": {"x": 9.5, "y": 10.75, "z": 10.5}
     },
     "language": "fa",
+    "welcome_message": "سلام دوستان این بات توسط @nima_curly ساخته شده این بات دارای 290 تا دنسه که مستونید با زدن شماره از 1 تا 290 یا اسم دنس ها از انها استفاده کنید امیدوارم لذت ببرید",
     "announcement_interval": 300,
     "announcement_message": "برای اجاره بات به آیدی @nima_curly پیام دهید!"
 }
