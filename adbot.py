@@ -23,8 +23,8 @@ logger = logging.getLogger(__name__)
 # تنظیمات پیش‌فرض
 CONFIG_FILE = "bot_config.json"
 DEFAULT_CONFIG = {
-    "host_usernames": ["nima_curly"],
-    "admin_usernames": ["nima_curly"],
+    "host_usernames": ["nuali0"],
+    "admin_usernames": ["nuali0"],
     "vip_usernames": [],
     "banned_users": [],
     "teleport_locations": {
@@ -33,7 +33,7 @@ DEFAULT_CONFIG = {
         "dj": {"x": 9.5, "y": 10.75, "z": 10.5}
     },
     "language": "fa",
-    "welcome_message": "سلام دوستان این بات توسط @nima_curly ساخته شده این بات دارای 290 تا دنسه که مستونید با زدن شماره از 1 تا 290 یا اسم دنس ها از انها استفاده کنید امیدوارم لذت ببرید",
+    "welcome_message": "سلام دوستان این بات توسط @nima_curly ساخته شده این بات دارای 290 تا دنسه که میتونید با زدن شماره از 1 تا 290 یا اسم دنس ها از انها استفاده کنید امیدوارم لذت ببرید",
     "announcement_interval": 300,
     "announcement_message": "برای اجاره بات به آیدی @nima_curly پیام دهید!"
 }
@@ -2833,8 +2833,8 @@ async def main():
     from http.server import BaseHTTPRequestHandler, HTTPServer
     
     logger.info("تلاش برای بارگذاری متغیرهای محیطی...")
-    room_id = os.getenv("ROOM_ID", "6a27192e6575c48d7f98aab8")
-    api_token = os.getenv("API_TOKEN", "da149da4e696203167b49db1fde0eaa3892a73f7d8d4174e7e29e62e0c2fee0f")
+    room_id = os.getenv("ROOM_ID", "662d150bfcb80646286c12ef")
+    api_token = os.getenv("API_TOKEN", "437a156f4a7bc7d2d241b8d11902f87e0ae5cdef70d050639167c6a63307c32d")
     
     if not room_id or not api_token:
         logger.error("ROOM_ID یا API_TOKEN تنظیم نشده‌اند.")
